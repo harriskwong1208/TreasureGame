@@ -13,14 +13,22 @@ white_color = (255,255,255)
 
 clock = pygame.time.Clock() 
 
-while True:
-    #handle events
-    #Execute logic
-    #Update display
-    game_window.fill(white_color)
-    pygame.display.update()
+def run_game_loop():
+    while True:
+        #handle events
+        events = pygame.event.get()
+        for event in events:
+            if event.type == pygame.QUIT:
+                return
 
-    clock.tick(60)
+        #Execute logic
+        #Update display
+        game_window.fill(white_color)
+        pygame.display.update()
+
+        clock.tick(60)
+
+run_game_loop()        
 
 pygame.quit()
 quit()
