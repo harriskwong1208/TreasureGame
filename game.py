@@ -20,7 +20,14 @@ class Game:
         self.background = GameObject(0,0,self.width,self.height,'asset/background.png')
         self.treasure = GameObject(375,50,50,50,'asset/treasure.png')
         self.player = Player(375,700,50,50,'asset/player.png',7)
-        self.enemy = Enemy(50,600,50,50,'asset/enemy.png',7)
+
+        self.enemies = [
+            Enemy(0,600,50,50,'asset/enemy.png',7),
+            Enemy(750,400,50,50,'asset/enemy.png',7),
+            Enemy(0,200,50,50,'asset/enemy.png',7)
+        ]
+
+        
 
 
     def draw_objects(self):
@@ -30,9 +37,17 @@ class Game:
         self.game_window.blit(self.background.image,(self.background.x,self.background.y))
         self.game_window.blit(self.treasure.image,(self.treasure.x,self.treasure.y))
         self.game_window.blit(self.player.image,(self.player.x,self.player.y))
-        self.game_window.blit(self.enemy.image,(self.enemy.x,self.enemy.y))
+       
+        for enemy in self.enemies:
+            self.game_window.blit(enemy.image,(enemy.x,enemy.y))
 
         pygame.display.update()
+
+
+    def move_object(self,player_direction):
+        self.player.move(player_direction,self.height)
+        for enemy in self.enemies:
+            enemy.move(self.width)
 
 
     def detect_collision(self,object_1,object_2):
@@ -48,6 +63,13 @@ class Game:
         
         return True
         
+    def check_if_collided(self):
+            for enemy in self.enemies:
+                if self.detect_collision(self.player,enemy):
+                    return True
+            if self.detect_collision(self.player,self.treasure):
+                return True
+            return False
 
 
     def run_game_loop(self):
@@ -73,16 +95,13 @@ class Game:
 
                         
             #Execute logic
-            self.player.move(player_direction,self.height)
-            self.enemy.move(self.width)
+            self.move_object(player_direction)
 
             #Update display
             self.draw_objects()
 
-            #detect collisions
-            if self.detect_collision(self.player,self.enemy):
-                return
-            elif self.detect_collision(self.player,self.treasure):
+            #detect collisions         
+            if self.check_if_collided():
                 return
 
             self.clock.tick(60)        
