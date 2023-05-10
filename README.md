@@ -1,19 +1,17 @@
 
 # TreasureGame
 
--<b>Project Overview:</b>
+<b>Project Overview:</b>
 <p>
 This project is a game built in Python using the pygame libaray. This game allows users to play as an adventurer, who must avoid enemies and cross the dirt road to claim the treasure! There are multiple levels, once
   the player reaches the treasure, enemies and their speed increase. 
   
-
-  
-  
+![Treasuregame](asset\TreasureGame.png)
   
   
 </p>
 
--<b>Installation:</b>
+<b>Installation:</b>
 <p>
   -Clone this project.
 </p>  
