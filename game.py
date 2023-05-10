@@ -35,6 +35,19 @@ class Game:
         pygame.display.update()
 
 
+    def detect_collision(self,object_1,object_2):
+        if object_1.y > (object_2.y + object_2.height):
+            return False
+        elif (object_1.y + object_1.height) < object_2.y:
+            return False
+        
+        if object_1.x > (object_2.x + object_2.width):
+            return False
+        elif (object_1.x + object_1.width) < object_2.x:
+            return False
+        
+        return True
+        
 
 
     def run_game_loop(self):
@@ -65,5 +78,11 @@ class Game:
 
             #Update display
             self.draw_objects()
+
+            #detect collisions
+            if self.detect_collision(self.player,self.enemy):
+                return
+            elif self.detect_collision(self.player,self.treasure):
+                return
 
             self.clock.tick(60)        
