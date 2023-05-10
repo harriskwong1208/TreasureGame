@@ -6,5 +6,10 @@ class Player(GameObject):
 
             self.speed = speed
 
-    def move(self,direction):
+    def move(self,direction,max_height):
+          if (self.y >= max_height - self.height) or (self.y ==0):
+                if(self.y ==0 and direction == -1):
+                      return
+                elif(self.y >= max_height - self.height and direction == 1):
+                        return
           self.y += (direction * self.speed)        

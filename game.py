@@ -57,7 +57,7 @@ class Game:
 
                         
             #Execute logic
-            self.player.move(player_direction)
+            self.player.move(player_direction,self.height)
 
             #Update display
             self.draw_objects()
