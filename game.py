@@ -19,14 +19,31 @@ class Game:
 
         self.background = GameObject(0,0,self.width,self.height,'asset/background.png')
         self.treasure = GameObject(375,50,50,50,'asset/treasure.png')
+
+        
+
+        self.level = 1.0
+        self.reset_map()
+
+    def reset_map(self):
         self.player = Player(375,700,50,50,'asset/player.png',7)
 
-        self.enemies = [
-            Enemy(0,600,50,50,'asset/enemy.png',7),
-            Enemy(750,400,50,50,'asset/enemy.png',7),
-            Enemy(0,200,50,50,'asset/enemy.png',7)
-        ]
-
+        speed = 5 + (self.level * 5)
+        if self.level >= 4.0:
+            self.enemies = [
+                Enemy(0,600,50,50,'asset/enemy.png',speed),
+                Enemy(750,400,50,50,'asset/enemy.png',speed),
+                Enemy(0,200,50,50,'asset/enemy.png',speed)
+            ]
+        elif self.level >= 2.0:
+            self.enemies = [
+                Enemy(0,600,50,50,'asset/enemy.png',speed),
+                Enemy(750,400,50,50,'asset/enemy.png',speed)
+            ]     
+        else:
+            self.enemies = [
+                Enemy(0,600,50,50,'asset/enemy.png',speed)
+            ]     
         
 
 
@@ -51,23 +68,17 @@ class Game:
 
 
     def detect_collision(self,object_1,object_2):
-        if object_1.y > (object_2.y + object_2.height):
-            return False
-        elif (object_1.y + object_1.height) < object_2.y:
-            return False
-        
-        if object_1.x > (object_2.x + object_2.width):
-            return False
-        elif (object_1.x + object_1.width) < object_2.x:
-            return False
-        
-        return True
+        if object_1.y < (object_2.y + object_2.height) and (object_1.y + object_1.height) > object_2.y and object_1.x < (object_2.x + object_2.width) and (object_1.x + object_1.width) > object_2.x :
+            return True
+        return False
         
     def check_if_collided(self):
             for enemy in self.enemies:
                 if self.detect_collision(self.player,enemy):
+                    self.level = 1.0
                     return True
             if self.detect_collision(self.player,self.treasure):
+                self.level += 0.5
                 return True
             return False
 
@@ -102,6 +113,6 @@ class Game:
 
             #detect collisions         
             if self.check_if_collided():
-                return
+                self.reset_map()
 
             self.clock.tick(60)        
