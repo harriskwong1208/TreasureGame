@@ -1,7 +1,7 @@
 import pygame
 from gameObject import GameObject
 from player import Player
-
+from enemy import Enemy
 
 class Game:
 
@@ -19,7 +19,8 @@ class Game:
 
         self.background = GameObject(0,0,self.width,self.height,'asset/background.png')
         self.treasure = GameObject(375,50,50,50,'asset/treasure.png')
-        self.player = Player(375,700,50,50,'asset/player.png',10)
+        self.player = Player(375,700,50,50,'asset/player.png',7)
+        self.enemy = Enemy(50,600,50,50,'asset/enemy.png',7)
 
 
     def draw_objects(self):
@@ -29,6 +30,8 @@ class Game:
         self.game_window.blit(self.background.image,(self.background.x,self.background.y))
         self.game_window.blit(self.treasure.image,(self.treasure.x,self.treasure.y))
         self.game_window.blit(self.player.image,(self.player.x,self.player.y))
+        self.game_window.blit(self.enemy.image,(self.enemy.x,self.enemy.y))
+
         pygame.display.update()
 
 
@@ -58,6 +61,7 @@ class Game:
                         
             #Execute logic
             self.player.move(player_direction,self.height)
+            self.enemy.move(self.width)
 
             #Update display
             self.draw_objects()
