@@ -3,8 +3,9 @@
 
 <b>Project Overview:</b>
 <p>
-This project is a game built in Python using the pygame libaray. This game allows users to play as an adventurer, who must avoid enemies and cross the dirt road to claim the treasure! There are multiple levels, once
-  the player reaches the treasure, enemies and their speed increase. 
+TreasureGame is an engaging Python-based game developed utilizing the pygame library. This captivating experience places users in the role of an adventurer, tasked with skillfully evading enemies and navigating the 
+  dirt road to obtain the prized 
+  treasure. Comprising a series of progressively challenging levels, this game presents challenges to triumphant players with more enemies and accelerated velocity, providing an increasingly thrilling and demanding gameplay experience.
   
 ![](asset/TreasureGame.png)
   
