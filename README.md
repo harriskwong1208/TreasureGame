@@ -3,7 +3,7 @@
 
 <b>Project Overview:</b>
 <p>
-TreasureGame is an engaging Python-based game developed utilizing the pygame library. This captivating experience places users in the role of an adventurer, tasked with skillfully evading enemies and navigating the 
+TreasureGame is an engaging Python-based game developed utilizing the pygame library. This experience places users in the role of an adventurer, tasked with skillfully evading enemies and navigating the 
   dirt road to obtain the prized 
   treasure. Comprising a series of progressively challenging levels, this game presents challenges to triumphant players with more enemies and accelerated velocity, providing an increasingly thrilling and demanding gameplay experience.
   
@@ -14,14 +14,14 @@ TreasureGame is an engaging Python-based game developed utilizing the pygame lib
 
 <b>Installation:</b>
 <p>
-  -Clone this project.
+  -Clone this repository.
 </p>  
 <p>
-  -Use an IDE (for example: VS code) to open project.
-</p>  
-  -In terminal, type "pythonw main.py".
+
+  -In terminal, change directory path to project folder. Once changed, type "pythonw main.py" to run the game application.
+  </p>
 <p>
-  -Game window shows up, enjoy the game!
+  -A Game window should show up, enjoy the game!
 </p>
 
 
