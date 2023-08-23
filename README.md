@@ -1,7 +1,7 @@
 
 # TreasureGame
 
-<b>Project Overview:</b>
+<h2>Project Overview:</h2>
 <p>
 TreasureGame is an engaging Python-based game developed utilizing the pygame library. This experience places users in the role of an adventurer, tasked with skillfully evading enemies and navigating the 
   dirt road to obtain the prized 
@@ -12,7 +12,7 @@ TreasureGame is an engaging Python-based game developed utilizing the pygame lib
   
 </p>
 
-<b>Installation:</b>
+<h2>How to Run on Local Computer: </h2>
 <p>
   -Clone this repository.
 </p>  
