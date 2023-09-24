@@ -12,16 +12,3 @@ TreasureGame is an engaging Python-based game developed utilizing the pygame lib
   
 </p>
 
-<h2>How to Run on Local Computer: </h2>
-<p>
-  -Clone this repository.
-</p>  
-<p>
-
-  -In terminal, change directory path to project folder. Once changed, type "pythonw main.py" to run the game application.
-  </p>
-<p>
-  -A Game window should show up, enjoy the game!
-</p>
-
-
